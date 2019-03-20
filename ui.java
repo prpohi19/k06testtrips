@@ -19,6 +19,7 @@ public class ui {
 				if((trips.kysi(0,0) == symbls[i] && trips.kysi(1,0) == symbls[i] && trips.kysi(2,0) == symbls[i]) || // ülevalt alla 1 tulp
 				(trips.kysi(0,1) == symbls[i] && trips.kysi(1,1) == symbls[i] && trips.kysi(2,1) == symbls[i]) || // ülevalt alla 2 tulp
 				(trips.kysi(0,2) == symbls[i] && trips.kysi(1,2) == symbls[i] && trips.kysi(2,2) == symbls[i]) || // ülevalt alla 2 tulp
+				// vaja teha sideways ja diagonaalid
 				//...) {
 					
 				}
