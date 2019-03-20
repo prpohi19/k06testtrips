@@ -26,8 +26,8 @@ public class Trips implements Tripsuliides {
         if (kelleKord() == symbolid[0]){
             kord = symbolid[1];
         }
-        else {
-            kord = symbolid[2];
+        else if (kelleKord() == symbolid[1]) {
+            kord = symbolid[0];
         }
     }
 
