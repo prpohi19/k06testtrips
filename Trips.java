@@ -1,7 +1,7 @@
 public class Trips implements Tripsuliides {
     private char[][] kohad = new char[3][3];
     private char[] symbolid = {'X', '0'};
-    private char kord;
+    private char kord = 'X';
 
     public void alusta(char symbol) {
         if (new String(symbolid).indexOf(symbol) == -1) { // https://stackoverflow.com/a/18581539
