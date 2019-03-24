@@ -34,4 +34,27 @@ public class Trips implements Tripsuliides {
     public char kysi(int rida, int veerg) {
         return kohad[rida][veerg];
     }
+
+    public static boolean kontrolliVoitu(Trips trips) {
+        char[] symbls = {'X', '0'};
+        boolean isDone = false;
+
+        for(int i = 0; i < symbls.length; i++) {
+            if(!isDone) {
+                if((trips.kysi(0,0) == symbls[i] && trips.kysi(1,0) == symbls[i] && trips.kysi(2,0) == symbls[i]) || // ülevalt alla 1 tulp
+                        (trips.kysi(0,1) == symbls[i] && trips.kysi(1,1) == symbls[i] && trips.kysi(2,1) == symbls[i]) || // ülevalt alla 2 tulp
+                        (trips.kysi(0,2) == symbls[i] && trips.kysi(1,2) == symbls[i] && trips.kysi(2,2) == symbls[i]) || // ülevalt alla 3 tulp
+                        (trips.kysi(0,0) == symbls[i] && trips.kysi(1,1) == symbls[i] && trips.kysi(2,2) == symbls[i]) || // ülevalt vasakult alla paremale
+                        (trips.kysi(0,2) == symbls[i] && trips.kysi(1,1) == symbls[i] && trips.kysi(2,0) == symbls[i]) || // ülevalt paremalt alla vasakule
+                        (trips.kysi(0,0) == symbls[i] && trips.kysi(0,1) == symbls[i] && trips.kysi(0,2) == symbls[i]) || // 1. rida
+                        (trips.kysi(1,0) == symbls[i] && trips.kysi(1,1) == symbls[i] && trips.kysi(1,2) == symbls[i]) || // 2. rida
+                        (trips.kysi(2,0) == symbls[i] && trips.kysi(2,1) == symbls[i] && trips.kysi(2,2) == symbls[i])) { // 2. rida
+                    isDone = true;
+                    System.out.println("Võitis ["+symbls[i]+"]");
+                }
+            }
+        }
+
+        return isDone;
+    }
 }

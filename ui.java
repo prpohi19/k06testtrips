@@ -7,7 +7,7 @@ public class ui {
 		Scanner s = new Scanner(System.in);
 		System.out.println("TRIPS-TRAPS-TRULL");
 		
-		while(!checkIfWon(tripsArr)) {
+		while(!Trips.kontrolliVoitu(tripsArr)) {
 			render(tripsArr);
 			System.out.println("__________________________");
 			System.out.println("SINU KORD: "+tripsArr.kelleKord());
@@ -31,29 +31,6 @@ public class ui {
 			}
 		}
 		render(tripsArr);
-	}
-	
-	public static boolean checkIfWon(Trips trips) {
-		char[] symbls = {'X', '0'};
-		boolean isDone = false;
-		
-		for(int i = 0; i < symbls.length; i++) {
-			if(!isDone) {
-				if((trips.kysi(0,0) == symbls[i] && trips.kysi(1,0) == symbls[i] && trips.kysi(2,0) == symbls[i]) || // ülevalt alla 1 tulp
-				(trips.kysi(0,1) == symbls[i] && trips.kysi(1,1) == symbls[i] && trips.kysi(2,1) == symbls[i]) || // ülevalt alla 2 tulp
-				(trips.kysi(0,2) == symbls[i] && trips.kysi(1,2) == symbls[i] && trips.kysi(2,2) == symbls[i]) || // ülevalt alla 3 tulp
-				(trips.kysi(0,0) == symbls[i] && trips.kysi(1,1) == symbls[i] && trips.kysi(2,2) == symbls[i]) || // ülevalt vasakult alla paremale
-				(trips.kysi(0,2) == symbls[i] && trips.kysi(1,1) == symbls[i] && trips.kysi(2,0) == symbls[i]) || // ülevalt paremalt alla vasakule
-				(trips.kysi(0,0) == symbls[i] && trips.kysi(0,1) == symbls[i] && trips.kysi(0,2) == symbls[i]) || // 1. rida
-				(trips.kysi(1,0) == symbls[i] && trips.kysi(1,1) == symbls[i] && trips.kysi(1,2) == symbls[i]) || // 2. rida
-				(trips.kysi(2,0) == symbls[i] && trips.kysi(2,1) == symbls[i] && trips.kysi(2,2) == symbls[i])) { // 2. rida
-					isDone = true;
-					System.out.println("Võitis ["+symbls[i]+"]");
-				}
-			}
-		}
-		
-		return isDone;
 	}
 	
 	public static void render(Trips trips) {
