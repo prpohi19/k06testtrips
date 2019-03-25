@@ -35,7 +35,7 @@ public class Trips implements Tripsuliides {
         return kohad[rida][veerg];
     }
 
-    public static boolean kontrolliVoitu(Trips trips) {
+    public boolean kontrolliVoitu(Trips trips) {
         char[] symbls = {'X', '0'};
         boolean isDone = false;
 
