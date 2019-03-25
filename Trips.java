@@ -35,22 +35,21 @@ public class Trips implements Tripsuliides {
         return kohad[rida][veerg];
     }
 
-    public boolean kontrolliVoitu(Trips trips) {
-        char[] symbls = {'X', '0'};
+    public boolean kontrolliVoitu() {
         boolean isDone = false;
 
-        for(int i = 0; i < symbls.length; i++) {
+        for(int i = 0; i < symbolid.length; i++) {
             if(!isDone) {
-                if((trips.kysi(0,0) == symbls[i] && trips.kysi(1,0) == symbls[i] && trips.kysi(2,0) == symbls[i]) || // ülevalt alla 1 tulp
-                        (trips.kysi(0,1) == symbls[i] && trips.kysi(1,1) == symbls[i] && trips.kysi(2,1) == symbls[i]) || // ülevalt alla 2 tulp
-                        (trips.kysi(0,2) == symbls[i] && trips.kysi(1,2) == symbls[i] && trips.kysi(2,2) == symbls[i]) || // ülevalt alla 3 tulp
-                        (trips.kysi(0,0) == symbls[i] && trips.kysi(1,1) == symbls[i] && trips.kysi(2,2) == symbls[i]) || // ülevalt vasakult alla paremale
-                        (trips.kysi(0,2) == symbls[i] && trips.kysi(1,1) == symbls[i] && trips.kysi(2,0) == symbls[i]) || // ülevalt paremalt alla vasakule
-                        (trips.kysi(0,0) == symbls[i] && trips.kysi(0,1) == symbls[i] && trips.kysi(0,2) == symbls[i]) || // 1. rida
-                        (trips.kysi(1,0) == symbls[i] && trips.kysi(1,1) == symbls[i] && trips.kysi(1,2) == symbls[i]) || // 2. rida
-                        (trips.kysi(2,0) == symbls[i] && trips.kysi(2,1) == symbls[i] && trips.kysi(2,2) == symbls[i])) { // 2. rida
+                if((kysi(0,0) == symbolid[i] && kysi(1,0) == symbolid[i] && kysi(2,0) == symbolid[i]) || // ülevalt alla 1 tulp
+                        (kysi(0,1) == symbolid[i] && kysi(1,1) == symbolid[i] && kysi(2,1) == symbolid[i]) || // ülevalt alla 2 tulp
+                        (kysi(0,2) == symbolid[i] && kysi(1,2) == symbolid[i] && kysi(2,2) == symbolid[i]) || // ülevalt alla 3 tulp
+                        (kysi(0,0) == symbolid[i] && kysi(1,1) == symbolid[i] && kysi(2,2) == symbolid[i]) || // ülevalt vasakult alla paremale
+                        (kysi(0,2) == symbolid[i] && kysi(1,1) == symbolid[i] && kysi(2,0) == symbolid[i]) || // ülevalt paremalt alla vasakule
+                        (kysi(0,0) == symbolid[i] && kysi(0,1) == symbolid[i] && kysi(0,2) == symbolid[i]) || // 1. rida
+                        (kysi(1,0) == symbolid[i] && kysi(1,1) == symbolid[i] && kysi(1,2) == symbolid[i]) || // 2. rida
+                        (kysi(2,0) == symbolid[i] && kysi(2,1) == symbolid[i] && kysi(2,2) == symbolid[i])) { // 2. rida
                     isDone = true;
-                    System.out.println("Võitis ["+symbls[i]+"]");
+                    System.out.println("Võitis ["+symbolid[i]+"]");
                 }
             }
         }

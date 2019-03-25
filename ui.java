@@ -7,7 +7,7 @@ public class ui {
 		Scanner s = new Scanner(System.in);
 		System.out.println("TRIPS-TRAPS-TRULL");
 		
-		while(!tripsArr.kontrolliVoitu(tripsArr)) {
+		while(!tripsArr.kontrolliVoitu()) {
 			render(tripsArr);
 			System.out.println("__________________________");
 			System.out.println("SINU KORD: "+tripsArr.kelleKord());
