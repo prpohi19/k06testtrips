@@ -35,21 +35,20 @@ public class Trips implements Tripsuliides {
         return kohad[rida][veerg];
     }
 
-    public static boolean kontrolliVoitu(Trips trips) {
-        char[] symbls = {'X', '0'};
+    public boolean kontrolliVoitu() {
         boolean isDone = false;
 
-        for(int i = 0; i < symbls.length; i++) {
-            if((trips.kysi(0,0) == symbls[i] && trips.kysi(1,0) == symbls[i] && trips.kysi(2,0) == symbls[i]) || // ülevalt alla 1 tulp
-                    (trips.kysi(0,1) == symbls[i] && trips.kysi(1,1) == symbls[i] && trips.kysi(2,1) == symbls[i]) || // ülevalt alla 2 tulp
-                    (trips.kysi(0,2) == symbls[i] && trips.kysi(1,2) == symbls[i] && trips.kysi(2,2) == symbls[i]) || // ülevalt alla 3 tulp
-                    (trips.kysi(0,0) == symbls[i] && trips.kysi(1,1) == symbls[i] && trips.kysi(2,2) == symbls[i]) || // ülevalt vasakult alla paremale
-                    (trips.kysi(0,2) == symbls[i] && trips.kysi(1,1) == symbls[i] && trips.kysi(2,0) == symbls[i]) || // ülevalt paremalt alla vasakule
-                    (trips.kysi(0,0) == symbls[i] && trips.kysi(0,1) == symbls[i] && trips.kysi(0,2) == symbls[i]) || // 1. rida
-                    (trips.kysi(1,0) == symbls[i] && trips.kysi(1,1) == symbls[i] && trips.kysi(1,2) == symbls[i]) || // 2. rida
-                    (trips.kysi(2,0) == symbls[i] && trips.kysi(2,1) == symbls[i] && trips.kysi(2,2) == symbls[i])) { // 2. rida
+        for (char c : symbolid) {
+            if ((kysi(0, 0) == c && kysi(1, 0) == c && kysi(2, 0) == c) || // ülevalt alla 1 tulp
+                    (kysi(0, 1) == c && kysi(1, 1) == c && kysi(2, 1) == c) || // ülevalt alla 2 tulp
+                    (kysi(0, 2) == c && kysi(1, 2) == c && kysi(2, 2) == c) || // ülevalt alla 3 tulp
+                    (kysi(0, 0) == c && kysi(1, 1) == c && kysi(2, 2) == c) || // ülevalt vasakult alla paremale
+                    (kysi(0, 2) == c && kysi(1, 1) == c && kysi(2, 0) == c) || // ülevalt paremalt alla vasakule
+                    (kysi(0, 0) == c && kysi(0, 1) == c && kysi(0, 2) == c) || // 1. rida
+                    (kysi(1, 0) == c && kysi(1, 1) == c && kysi(1, 2) == c) || // 2. rida
+                    (kysi(2, 0) == c && kysi(2, 1) == c && kysi(2, 2) == c)) { // 2. rida
                 isDone = true;
-                System.out.println("Võitis ["+symbls[i]+"]");
+                System.out.println("Võitis [" + c + "]");
                 break;
             }
         }
