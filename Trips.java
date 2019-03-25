@@ -38,19 +38,18 @@ public class Trips implements Tripsuliides {
     public boolean kontrolliVoitu() {
         boolean isDone = false;
 
-        for(int i = 0; i < symbolid.length; i++) {
-            if(!isDone) {
-                if((kysi(0,0) == symbolid[i] && kysi(1,0) == symbolid[i] && kysi(2,0) == symbolid[i]) || // ülevalt alla 1 tulp
-                        (kysi(0,1) == symbolid[i] && kysi(1,1) == symbolid[i] && kysi(2,1) == symbolid[i]) || // ülevalt alla 2 tulp
-                        (kysi(0,2) == symbolid[i] && kysi(1,2) == symbolid[i] && kysi(2,2) == symbolid[i]) || // ülevalt alla 3 tulp
-                        (kysi(0,0) == symbolid[i] && kysi(1,1) == symbolid[i] && kysi(2,2) == symbolid[i]) || // ülevalt vasakult alla paremale
-                        (kysi(0,2) == symbolid[i] && kysi(1,1) == symbolid[i] && kysi(2,0) == symbolid[i]) || // ülevalt paremalt alla vasakule
-                        (kysi(0,0) == symbolid[i] && kysi(0,1) == symbolid[i] && kysi(0,2) == symbolid[i]) || // 1. rida
-                        (kysi(1,0) == symbolid[i] && kysi(1,1) == symbolid[i] && kysi(1,2) == symbolid[i]) || // 2. rida
-                        (kysi(2,0) == symbolid[i] && kysi(2,1) == symbolid[i] && kysi(2,2) == symbolid[i])) { // 2. rida
-                    isDone = true;
-                    System.out.println("Võitis ["+symbolid[i]+"]");
-                }
+        for (char c : symbolid) {
+            if ((kysi(0, 0) == c && kysi(1, 0) == c && kysi(2, 0) == c) || // ülevalt alla 1 tulp
+                    (kysi(0, 1) == c && kysi(1, 1) == c && kysi(2, 1) == c) || // ülevalt alla 2 tulp
+                    (kysi(0, 2) == c && kysi(1, 2) == c && kysi(2, 2) == c) || // ülevalt alla 3 tulp
+                    (kysi(0, 0) == c && kysi(1, 1) == c && kysi(2, 2) == c) || // ülevalt vasakult alla paremale
+                    (kysi(0, 2) == c && kysi(1, 1) == c && kysi(2, 0) == c) || // ülevalt paremalt alla vasakule
+                    (kysi(0, 0) == c && kysi(0, 1) == c && kysi(0, 2) == c) || // 1. rida
+                    (kysi(1, 0) == c && kysi(1, 1) == c && kysi(1, 2) == c) || // 2. rida
+                    (kysi(2, 0) == c && kysi(2, 1) == c && kysi(2, 2) == c)) { // 2. rida
+                isDone = true;
+                System.out.println("Võitis [" + c + "]");
+                break;
             }
         }
 
