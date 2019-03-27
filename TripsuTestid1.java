@@ -49,8 +49,8 @@ public class TripsuTestid1 {
 		assertEquals('X', laud.kelleKord());
 		laud.paiguta('X', 0, 0);
 	}
-	@Test(expected=true)
-	public boolean voiduKontroll() {
+	@Test
+	public void voiduKontroll() {
 		laud.alusta('0');
 		assertEquals('0', laud.kelleKord());
 		laud.paiguta('0', 0, 0);
@@ -62,6 +62,6 @@ public class TripsuTestid1 {
 		laud.paiguta('X', 2, 2);
 		assertEquals('0', laud.kelleKord());
 		laud.paiguta('0', 2, 0);
-		return laud.kontrolliVoitu();
+		assertEquals(true, laud.kontrolliVoitu());
 	}
 }
