@@ -13,7 +13,7 @@ public class TripsuTestid1 {
 		laud.paiguta('0', 2, 2);
 		assertEquals('X', laud.kelleKord());
 	}
-	@Test (expected = java.lang.AssertionError.class)
+	@Test(expected = java.lang.AssertionError.class)
 	public void veaKontroll1() {
 		laud.alusta('0');
 		assertEquals('0', laud.kelleKord());
@@ -49,7 +49,7 @@ public class TripsuTestid1 {
 		assertEquals('X', laud.kelleKord());
 		laud.paiguta('X', 0, 0);
 	}
-	@Test(expected = true)
+	@Test(expected=true)
 	public boolean voiduKontroll() {
 		laud.alusta('0');
 		assertEquals('0', laud.kelleKord());
@@ -62,6 +62,6 @@ public class TripsuTestid1 {
 		laud.paiguta('X', 2, 2);
 		assertEquals('0', laud.kelleKord());
 		laud.paiguta('0', 2, 0);
-		return tripsuObjekt.voiduKontrollimisefunktsioon()
+		return laud.kontrolliVoitu();
 	}
 }
