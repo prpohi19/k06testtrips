@@ -2,8 +2,15 @@
 import static org.junit.Assert.*;
 import org.junit.*;
 
-public class TripsuTest {
+	public class TripsuTest {
+
 	Tripsuliides laud;
+
+	public class IllegalMoveException extends Exception{
+	public IllegalMoveException(int rida, int veerg){
+	super(rida + "->" + veerg + " ei ole vyimalik");
+		}
+	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public void alustus1() {
@@ -39,19 +46,26 @@ public class TripsuTest {
 		paiguta(1, 1);
 		assertEquals('0', laud.kysi(1, 1));
 	}
-
+	
+	@Test(expected = IllegalMoveException.class)
+	public void CheckPaigutaIsNegative() throws IllegalMoveException {
+		laud.alusta('X');
+		paiguta(-1, -1);
+	}
+	
 	@Test(expected = IllegalArgumentException.class)
 	public void alustus2() {
 		laud.alusta('3');
 	}
 
-  	@Test(expected = IllegalBoardException.class)
-  	public void testNonSquareBoard() {
-    		laud.kysi(1, null, null);
+  	@Test(expected = IllegalArgumentException.class)
+  		public void testNonSquareBoard() {
+    		laud.kysi(1, 2, 3);
   	}
 	
 	@Test(expected = IllegalMoveException.class)
   	public void testMakeMoveOutOfBoundsNegative() throws IllegalMoveException {
-    	laud.kysi(-1, -2);
+    		laud.kysi(-1, -9);
 	}
+	
 }
