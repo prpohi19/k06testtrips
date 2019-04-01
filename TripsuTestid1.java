@@ -7,9 +7,14 @@ public class TripsuTestid1{
 	   laud.alusta('S');
 	}
 	public void korrahaldus(){
-	   laud.alusta('0');
-	   assertEquals('0', laud.kelleKord());
-	   laud.paiguta('0', 2, 2);
+	   laud.alusta('O');
+	   assertEquals('O', laud.kelleKord());
+	   laud.paiguta('O', 2, 2);
 	   assertEquals('X', laud.kelleKord());
 	}
+
+	//test: mängu jätkamine peale võitu
+	//test: sümboli asetamine juba hõivatud kohale
+	//test: sümboli asetamine lauast väljaspool asuvale väärtusele nt rida 4 veerg 5
+	//test: 
 }
