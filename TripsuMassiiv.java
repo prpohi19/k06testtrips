@@ -18,7 +18,7 @@ public class TripsuMassiiv implements Tripsuliides {
         return praeguneMangja;
     }
 
-    public void paiguta(char symbol, int rida, int veerg) {
+    public void paiguta(int rida, int veerg) {
         symbols[rida + (veerg * 3)] = praeguneMangja;
         if (praeguneMangja == '0') {
             praeguneMangja = 'X';
