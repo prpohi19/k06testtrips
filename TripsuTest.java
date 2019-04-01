@@ -19,7 +19,7 @@ public class TripsuTest {
 
 	public void CheckNum() {
 		if (kysi(x, y) == null) {
-			throw new ArithmeticException("puudub.");
+		throw new ArithmeticException("puudub.");
 		}
 	}
 
@@ -44,4 +44,10 @@ public class TripsuTest {
 	public void alustus2() {
 		laud.alusta('3');
 	}
+
+  	@Test(expected = IllegalBoardException.class)
+  	public void testNonSquareBoard() {
+    		laud.kysi(1, null, null);
+  	}
+
 }
