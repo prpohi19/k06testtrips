@@ -49,5 +49,9 @@ public class TripsuTest {
   	public void testNonSquareBoard() {
     		laud.kysi(1, null, null);
   	}
-
+	
+	@Test(expected = IllegalMoveException.class)
+  	public void testMakeMoveOutOfBoundsNegative() throws IllegalMoveException {
+    	laud.kysi(-1, -2);
+	}
 }
