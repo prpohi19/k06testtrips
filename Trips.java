@@ -14,7 +14,7 @@ public class Trips implements Tripsuliides {
         return kord;
     }
 
-    public void paiguta(char symbol, int rida, int veerg) {
+    public void paiguta(char symbol, int rida, int veerg) throws Exception {
         if (kelleKord() == symbol){
             kohad[rida][veerg] = symbol;
         }
@@ -35,7 +35,7 @@ public class Trips implements Tripsuliides {
         return kohad[rida][veerg];
     }
 
-    public boolean kontrolliVoitu() {
+    public boolean kontrolliVoitu() throws Exception {
         boolean isDone = false;
 
         for (char c : symbolid) {
