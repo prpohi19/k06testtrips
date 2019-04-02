@@ -1,14 +1,25 @@
 
 import static org.junit.Assert.*;
+
+import java.util.Arrays;
+import java.util.Collection;
+
+import org.junit.runners.Parameterized;
+import org.junit.runner.RunWith;
 import org.junit.*;
 
-	public class TripsuTest {
+@RunWith(Parameterized.class)
+public class TripsuTest {
 
 	Tripsuliides laud;
+    
+  public TripsuTest(Tripsuliides laud) {
+      this.laud = laud;
+  }
 
 	public class IllegalMoveException extends Exception{
-	public IllegalMoveException(int rida, int veerg){
-	super(rida + "->" + veerg + " ei ole vyimalik");
+	  public IllegalMoveException(int rida, int veerg) {
+	    super(rida + "->" + veerg + " ei ole vyimalik");
 		}
 	}
 
@@ -25,25 +36,27 @@ import org.junit.*;
 	}
 
 	public void CheckNum() {
-		if (kysi(x, y) == null) {
-		throw new ArithmeticException("puudub.");
+		if (laud.kysi(0, 0) == ' ') {
+			throw new ArithmeticException("puudub.");
 		}
 	}
 
-	@Test(expected = ArrayOutOfIndexException.class)
+	@Test(expected = ArrayIndexOutOfBoundsException.class)
 	public void CheckMore() {
+		laud.alusta('0');
 		laud.kysi(4, 2);
 	}
 
 	@Test
 	public void CheckMoreValid() {
+		laud.alusta('0');
 		assertEquals(' ', laud.kysi(1, 2));
 	}
 
 	@Test
 	public void CheckPaiguta() {
 		laud.alusta('0');
-		paiguta(1, 1);
+		laud.paiguta(1, 1);
 		assertEquals('0', laud.kysi(1, 1));
 	}
 	
@@ -58,14 +71,20 @@ import org.junit.*;
 		laud.alusta('3');
 	}
 
-  	@Test(expected = IllegalArgumentException.class)
-  		public void testNonSquareBoard() {
-    		laud.kysi(1, 2, 3);
-  	}
+  @Test(expected = IllegalArgumentException.class)
+    public void testNonSquareBoard() {
+      laud.kysi(1, 2, 3);
+  }
 	
 	@Test(expected = IllegalMoveException.class)
   	public void testMakeMoveOutOfBoundsNegative() throws IllegalMoveException {
     		laud.kysi(-1, -9);
 	}
 	
+	@Parameterized.Parameters
+    public static Collection<Object> instancesToTest() {
+        return Arrays.asList(
+                    new Object[]{new TripsuMassiiv()}
+        );
+    }
 }
