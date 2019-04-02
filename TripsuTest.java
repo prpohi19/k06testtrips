@@ -13,14 +13,8 @@ public class TripsuTest {
 
 	Tripsuliides laud;
     
-  public TripsuTest(Tripsuliides laud) {
-      this.laud = laud;
-  }
-
-	public class IllegalMoveException extends Exception{
-	  public IllegalMoveException(int rida, int veerg) {
-	    super(rida + "->" + veerg + " ei ole vyimalik");
-		}
+	public TripsuTest(Tripsuliides laud) {
+		this.laud = laud;
 	}
 
 	@Test(expected = IllegalArgumentException.class)
@@ -41,7 +35,7 @@ public class TripsuTest {
 		}
 	}
 
-	@Test(expected = ArrayIndexOutOfBoundsException.class)
+	@Test(expected = IllegalArgumentException.class)
 	public void CheckMore() {
 		laud.alusta('0');
 		laud.kysi(4, 2);
@@ -59,26 +53,28 @@ public class TripsuTest {
 		laud.paiguta(1, 1);
 		assertEquals('0', laud.kysi(1, 1));
 	}
-	
-	@Test(expected = IllegalMoveException.class)
-	public void CheckPaigutaIsNegative() throws IllegalMoveException {
+
+	@Test
+	public void CheckPlacingSamePlace() {
 		laud.alusta('X');
-		paiguta(-1, -1);
+		assertEquals(true, laud.paiguta(2, 2));
+		assertEquals(false, laud.paiguta(2, 2));
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void CheckPaigutaIsNegative() {
+		laud.alusta('X');
+		laud.paiguta(-1, -1);
 	}
 	
 	@Test(expected = IllegalArgumentException.class)
 	public void alustus2() {
 		laud.alusta('3');
 	}
-
-  @Test(expected = IllegalArgumentException.class)
-    public void testNonSquareBoard() {
-      laud.kysi(1, 2, 3);
-  }
 	
-	@Test(expected = IllegalMoveException.class)
-  	public void testMakeMoveOutOfBoundsNegative() throws IllegalMoveException {
-    		laud.kysi(-1, -9);
+	@Test(expected = IllegalArgumentException.class)
+  	public void testMakeMoveOutOfBoundsNegative() {
+		laud.kysi(-1, -9);
 	}
 	
 	@Parameterized.Parameters

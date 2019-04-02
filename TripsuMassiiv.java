@@ -18,14 +18,31 @@ public class TripsuMassiiv implements Tripsuliides {
         return praeguneMangja;
     }
 
-    public void paiguta(int rida, int veerg) {
-        symbols[rida + (veerg * 3)] = praeguneMangja;
+    public boolean paiguta(int rida, int veerg){
+        if (rida < 0 || rida > 2) {
+            throw new IllegalArgumentException("Rida saab olla ainult 0, 1 või 2");
+        } else if (veerg < 0 || veerg > 2) {
+            throw new IllegalArgumentException("Veerg saab olla ainult 0, 1 või 2");
+        }
+        int position = veerg + (rida * 3);
+        if (symbols[position] != ' ') {
+            return false;
+        }
+        symbols[position] = praeguneMangja;
         if (praeguneMangja == '0') {
             praeguneMangja = 'X';
+        } else {
+            praeguneMangja = '0';
         }
+        return true;
     }
 
-    public char kysi(int rida, int veerg) {
-        return symbols[rida + (veerg * 3)];
+    public char kysi(int rida, int veerg){
+        if (rida < 0 || rida > 2) {
+            throw new IllegalArgumentException("Rida saab olla ainult 0, 1 või 2");
+        } else if (veerg < 0 || veerg > 2) {
+            throw new IllegalArgumentException("Veerg saab olla ainult 0, 1 või 2");
+        }
+        return symbols[veerg + (rida * 3)];
     }
 }
