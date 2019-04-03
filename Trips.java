@@ -12,6 +12,9 @@ public class Trips implements Tripsuliides {
         public void alusta(char symbol){
             this.turn=symbol;
         }
+	public char kysi(int rida, int veerg){
+	    return board[rida][veerg];
+	}
         public char kelleKord(){
             return turn;
         }

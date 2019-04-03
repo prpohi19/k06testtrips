@@ -35,6 +35,7 @@ public class TripsuTestid1{
 	@Test(expected = NullPointerException.class)
 	public void salvestamine(){
 		laud.paiguta(1,1);
+		assertEquals('0', laud.kysi(1,1));
 		laud.salvesta(1,1);
 		laud.paiguta(1,2);
 		laud.salvesta(1,2);
@@ -46,5 +47,6 @@ public class TripsuTestid1{
 		laud.paiguta(3,1);
 		laud.paiguta(3,2);
 		laud.paiguta(3,3);
+		
 	}
 }
