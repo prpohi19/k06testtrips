@@ -54,30 +54,31 @@ public class TripsuKlass {
     BufferedReader fReader = new BufferedReader(new FileReader("game.txt"));
     String row = fReader.readLine();
     while (row != null) {
-        System.out.println(row);
-        for (int i = 0; i < row.length(); i++) {
-  				int r = 0;
-  				int c = 0;
-  				if(i >= 3 && i <= 5) {
-  					r = 1;
-  				} else if(i > 5) {
-  					r = 2;
-  				}
-  				if(i == 1 || i == 4 || i == 7) {
-  					c = 1;
-  				} else if(i == 2 || i == 5 || i == 8) {
-  					c = 2;
-  				}
-          if (row.charAt(i) == 'X' || row.charAt(i) == '0'){
-			      board[r][c] = row.charAt(i);
-          } else if (row.charAt(i) == ' '){
-			      board[r][c] = '#';
-          }
+      System.out.println(row);
+      for (int i = 0; i < row.length(); i++) {
+        int r = 0;
+        int c = 0;
+        if(i >= 3 && i <= 5) {
+          r = 1;
+        } else if(i > 5) {
+          r = 2;
         }
-        row = fReader.readLine();
+        if(i == 1 || i == 4 || i == 7) {
+          c = 1;
+        } else if(i == 2 || i == 5 || i == 8) {
+          c = 2;
+        }
+        if (row.charAt(i) == 'X' || row.charAt(i) == '0'){
+          board[r][c] = row.charAt(i);
+        } else if (row.charAt(i) == ' '){
+          board[r][c] = '#';
+        }
+      }
+      row = fReader.readLine();
     }
     fReader.close();
   }
+  
   void saveFile() throws Exception {
     PrintWriter fWriter = new PrintWriter(new FileWriter("game.txt"));
     for (int i = 0; i < 3; i++){
