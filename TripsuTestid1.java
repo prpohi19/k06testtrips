@@ -1,5 +1,6 @@
 import org.junit.*;
 import static org.junit.Assert.*;
+
 public class TripsuTestid1{
 	Tripsuliides laud;
 	@Test(expected=IllegalArgumentException.class)
