@@ -1,81 +1,68 @@
 import java.util.Random;
+import java.io.*;
+import java.net.*;
+import java.util.*;
 
 public class Tegevused implements Tripsuliides{
 
-
-  private static char[][] laud = new char [3][3];
-
-  public char alusta(){
-    tyhiLaud();
+  public String alusta(String[] laud){
     Random r = new Random();
+    System.out.println("Algab Trips-Traps-Trull mäng.");
+
+    // täidame laua numbritega:
+    for (int i = 0; i < 9; i++) {
+        laud[i] = String.valueOf(i + 1);
+    }
+
+    //randomiga otsustatakse kes alustab
     int kesAlustab = r.nextInt(2);
     if(kesAlustab == 0){
-		char symbol = 'X';
-    return symbol;
+		String kord = "X";
+    return kord;
 	}else{
-		char symbol = 'O';
-    return symbol;
+		String kord = "O";
+    return kord;
 	 }
   }
 
-  public void tyhiLaud(){
-    //loop läbi ridade:
-    for(int i = 0; i < 3; i++){
-      //loop läbi veergude
-      for(int j = 0; j < 3; j++){
-        laud[i][j] = '-';
-      }
+
+  public String kelleKord(String kord){
+	 /* if (kord == "X") {
+            kord = "O";
+            return kord;
+    } else {
+        kord = "X";
+        return kord;
+		}*/
+
+    if (kord.equals("X")) {
+        kord = "O";
+        return kord;
+    } else {
+        kord = "X";
+        return kord;
     }
   }
 
-  public void prindiLaud(){
-    System.out.println("-------------");
-    for(int i = 0; i < 3; i++){
-      System.out.print( "| ");
-      for(int j = 0; j < 3; j++){
-        System.out.print(laud[i][j] + " | ");
-      }
-      System.out.println();
-      System.out.println("-------------");
-    }
-  }
-
-  public char kelleKord(char symbol){
-    char kes = symbol;
-	  if (kes == 'X') {
-            kes = 'O';
-            symbol = kes;
-            return symbol;
-        }
-        else {
-            kes = 'X';
-            symbol = kes;
-            return symbol;
-			}
-  }
-
- /*public String kysi(int rida, int veerg){
-
-   System.out.println(kelleKord(alusta()) + ", märgi soovitud asukoht."); // + tegevus.kysi(int rida, int veerg));
-   System.out.print("Rida (0-2): ");
-   rida = input.nextInt();
-   System.out.print("Veerg (0-2): ");
-   veerg = input.nextInt();
- }*/
-
- public void paiguta(char symbol, int rida, int veerg){
-   System.out.println("----------");
-   for(int i = 0; i < 3; i++){
-     System.out.print( "| ");
-     for(int j = 0; j < 3; j++){
-       if(rida == i && veerg == j){System.out.print(symbol + " | ");}
-       else{ System.out.print(laud[i][j] + " | "); }
-     }
-     System.out.println();
-     System.out.println("----------");
-
-     //vaja luua massiiv(3*3 kohta), kuhu salvestuvad symbolid
-   }
+ public String[] kysi(String kord, String[] laud ){
+   Scanner sisend = new Scanner(System.in);
+   System.out.println(kord + ", märgi soovitud asukoht.");
+   int number = sisend.nextInt();
+   laud[number - 1] = kord;
+   return laud;
  }
+
+
+
+ public boolean paiguta(String[] laud){
+     System.out.println("/---|---|---\\");
+     System.out.println("| " + laud[0] + " | " + laud[1] + " | " + laud[2] + " |");
+     System.out.println("|-----------|");
+     System.out.println("| " + laud[3] + " | " + laud[4] + " | " + laud[5] + " |");
+     System.out.println("|-----------|");
+     System.out.println("| " + laud[6] + " | " + laud[7] + " | " + laud[8] + " |");
+     System.out.println("/---|---|---\\");
+     return true;
+   }
 
 }
