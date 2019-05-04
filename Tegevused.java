@@ -27,13 +27,6 @@ public class Tegevused implements Tripsuliides{
 
 
   public String kelleKord(String kord){
-	 /* if (kord == "X") {
-            kord = "O";
-            return kord;
-    } else {
-        kord = "X";
-        return kord;
-		}*/
 
     if (kord.equals("X")) {
         kord = "O";
