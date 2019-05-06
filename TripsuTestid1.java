@@ -22,7 +22,7 @@ public class TripsuTestid1{
 	   laud.alusta('4');
 	}
 	@Test(expected=IllegalArgumentException.class) //asetamine hõivatud kohale vist?
-    public void vistonsamakohatest(){
+    public void samakohatest(){
 	   laud.alusta('X');
 		 laud.paiguta(2,2);
 		 assertEquals('X', laud.kysi(2,2));
