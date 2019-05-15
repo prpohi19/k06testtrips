@@ -1,4 +1,5 @@
 # k06testtrips
+RÜHMATÖÖ ASUB https://github.com/prpohi19/k06testtrips/pull/2
 
 * Koosta tripsuliidesele ja testidele vastav klass
 * Lisa mõned testid
