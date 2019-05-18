@@ -1,6 +1,6 @@
-interface Tripsuliides{
-	void alusta(char symbol); //lubatud 0 ja X
-	char kelleKord();
-	void paiguta(char symbol, int rida, int veerg);
-	char kysi(int rida, int veerg);
+public interface Tripsuliides {
+	String alusta(String[] laud); // lubatud 0 ja X
+	String kelleKord(String kord);
+	boolean paiguta(String[] laud); 
+	String[] kysi(String kord, String[] laud);
 }
