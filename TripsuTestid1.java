@@ -1,15 +1,15 @@
-import org.junit.*;
+/*import org.junit.*;
 import static org.junit.Assert.*;
 public class TripsuTestid1{
-	Tripsuliides laud;
+	Tripsuliides board;
 	@Test(expected=IllegalArgumentException.class)
     public void alustus1(){
-	   laud.alusta('S');
+	   board.alusta('S');
 	}
 	public void korrahaldus(){
-	   laud.alusta('0');
-	   assertEquals('0', laud.kelleKord());
-	   laud.paiguta('0', 2, 2);
-	   assertEquals('X', laud.kelleKord());
+	   board.alusta('0');
+	   assertEquals('0', board.kelleKord());
+	   board.paiguta('0', 2, 2);
+	   assertEquals('X', board.kelleKord());
 	}
-}
+}*/
