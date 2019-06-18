@@ -4,5 +4,5 @@ interface Tripsuliides{
 	void paiguta(char symbol, int rida, int veerg);
 	char kysi(int rida, int veerg);
 
-	boolean voiduKontroll() throws Exception;
+	boolean kontrolliVoitu();
 }
